@@ -1,0 +1,72 @@
+#include <iostream>
+#include <stdlib.h>
+#include <time.h>
+using namespace std;
+
+
+string name1[] = {"Diamonds","Hearts","Spades","Clubs"};
+string name2[] = {"Ace","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten","King","Queen","Jack"};
+
+
+string drawcard()
+{
+    srand ( time(NULL) );
+    string card = "";
+    int RandIndex1 = rand() % 4;
+    int RandIndex2 = rand() % 13;
+    
+    card += name2[RandIndex2];
+    card += " of ";
+    card += name1[RandIndex1];
+    
+    return card;
+}
+
+int main() 
+{
+    // Write C++ code here
+    int noofcards = 52;
+    
+    string c;
+    int s;
+    
+    for (int i=0;i<noofcards;i++)
+    {
+        cout<<""<<endl;
+        cout<<"Do you want to draw a card? "<<endl;
+        cout<<"Enter Y for yes or N for no"<<endl;
+        cin>>c;
+    
+        if ((c=="Y")||(c=="y"))
+        {
+            cout<<"The card drawn is: "<<drawcard()<<endl;
+        }
+        else if((c=="N")||(c=="n"))
+        {
+            cout<<"Thank You! Bye!"<<endl;
+            break;
+        }
+        cout<<endl;
+        cout<<"Enter 1 if you want to quit"<<endl;
+        cout<<"Enter 2 if you want to continue"<<endl;
+        cin>>s;
+        if(s==1)
+        {
+            cout<<"Thank You! Bye!"<<endl;
+            break;
+        }
+        else if(s==2)
+        {
+            continue;
+        }
+        else
+        {
+            cout<<"invalid choice"<<endl;
+        }
+        cout<<endl;
+    }
+    
+    
+
+    return 0;
+}
